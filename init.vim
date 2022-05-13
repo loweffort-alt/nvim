@@ -9,6 +9,7 @@ set sw=2
 set relativenumber
 set laststatus=2
 set noshowmode
+set splitright
 
 let mapleader=" "
 
@@ -42,9 +43,14 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs' " Autocomplete () [] {}
 Plug 'alvan/vim-closetag' " Autocomplete html or React tags
 Plug 'tpope/vim-surround' " Wrap a variable with 'cs'
+Plug 'mattn/emmet-vim' " Emmet autocomplete for html
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -71,12 +77,20 @@ map <Leader>f :Files<CR>
 "Easymotion config
 nmap <Leader>s <Plug>(easymotion-s2)
 
+" Emmet config
+let g:user_emmet_leader_key=','
+
 "Nerdtree config
 let NERDTreeQuitOnOpen=1
 nmap <Leader>nj :NERDTreeFind<CR>
 
 "Signify config
 set updatetime=100
+
+" LSP config (declare autocomplete for many languages)
+lua << EOF
+require('lspconfig').tsserver.setup()
+EOF
 
 "Lightline config
 let g:lightline = {
@@ -128,6 +142,7 @@ cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
+nmap <Leader>ob :Buffer<CR>
 
 "Coc config
 inoremap <silent><expr> <TAB>
