@@ -59,6 +59,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tyewang/vimux-jest-test'
 Plug 'janko-m/vim-test'
 
+" LiveServer
+Plug 'turbio/bracey.vim'
+
 call plug#end()
 
 "-----------------------------------------------------------------------------------------------
@@ -133,6 +136,7 @@ nmap <A-k> 10<C-Y>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>, $a;<Esc>
+nmap <Leader>x :!node %<CR>
 inoremap mm <Esc>
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
