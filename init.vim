@@ -92,11 +92,7 @@ set updatetime=100
 
 " LSP config (declare autocomplete for many languages)
 lua << EOF
-<<<<<<< HEAD
 require'lspconfig'.tsserver.setup{}
-=======
-require('lspconfig').tsserver.setup()
->>>>>>> 3070e0f613219a9066f6eac4a2e1526360435c78
 EOF
 
 "Lightline config
