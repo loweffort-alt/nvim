@@ -60,7 +60,7 @@ Plug 'tyewang/vimux-jest-test'
 Plug 'janko-m/vim-test'
 
 " LiveServer
-Plug 'turbio/bracey.vim'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
 call plug#end()
 
