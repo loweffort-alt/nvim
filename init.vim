@@ -67,8 +67,10 @@ call plug#end()
 "-----------------------------------------------------------------------------------------------
 
 "Gruvbox config
+let g:gruvbox_italic=1
 set background=dark
 let g:gruvbox_material_background='medium'
+let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
 
 " Git
@@ -113,6 +115,8 @@ let g:lightline = {
       \  'right': ''
       \ }
       \}
+let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 "VimuxJestTest
 nnoremap <Leader>t :TestNearest<CR>
