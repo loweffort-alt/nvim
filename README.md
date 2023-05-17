@@ -26,7 +26,7 @@ nvim --version
 
 ## Ubicando init.vim
 Para configurar NeoVim necesitamos crear una carpeta llamada nvim en la siguiente dirección:
-```bash
+```powershell
 mkdir C:\Users\Alex\AppData\Local\nvim
 ```
 Ahora en nvim necesitamos copiar los archivos init.vim y coc-settings.json ubicados en este repositorio.
