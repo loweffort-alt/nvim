@@ -1,4 +1,4 @@
-# Docs
+# Tutorial :)
 
 ¡Hola! Este repositorio almacena mi configuración de Nvim en Windows10, aquí hay algunos vídeos que me sirvieron mucho cuando empezé con NeoVim:
 
