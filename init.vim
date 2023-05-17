@@ -15,7 +15,7 @@ let mapleader=" "
 
 "-----------------------------------------------------------------------------------------------
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Themes
 Plug 'sainnhe/gruvbox-material'
@@ -49,8 +49,8 @@ Plug 'mattn/emmet-vim' " Emmet autocomplete for html
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/completion-nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -67,8 +67,10 @@ call plug#end()
 "-----------------------------------------------------------------------------------------------
 
 "Gruvbox config
+let g:gruvbox_italic=1
 set background=dark
 let g:gruvbox_material_background='medium'
+let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
 
 " Git
@@ -90,16 +92,12 @@ nmap <Leader>nj :NERDTreeFind<CR>
 "Signify config
 set updatetime=100
 
-" LSP config (declare autocomplete for many languages)
-lua << EOF
-require'lspconfig'.tsserver.setup{}
-EOF
-
 "Lightline config
 let g:lightline = {
+      \'colorscheme': 'gruvbox',
       \'active': {
-      \  'left': [['mode', 'paste'], [], ['relativepath', 'modified']],
-      \  'right': [['kitestatus'], ['filetype', 'percent', 'lineinfo'], ['gitbranch']]
+      \  'left': [['mode', 'paste'], ['relativepath', 'modified']],
+      \  'right': [['filetype', 'percent', 'lineinfo','gitbranch']]
       \  },
       \'inactive': {
       \  'left': [['inactive'], ['relativepath']],
@@ -110,16 +108,15 @@ let g:lightline = {
       \  'inactive': 'inactive'
       \  },
       \'component_function': {
-      \  'gitbranch': 'fugitive#head',
-      \  'kitestatus': 'kite#statusline'
+      \  'gitbranch': 'FugitiveHead'
       \   },
-      \'colorscheme': 'gruvbox',
       \'subseparator': {
       \  'left': '',
       \  'right': ''
       \ }
       \}
 let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 "VimuxJestTest
 nnoremap <Leader>t :TestNearest<CR>
@@ -148,14 +145,27 @@ cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 nmap <Leader>ob :Buffer<CR>
 
+" LSP Config
+"lua << EOF
+"require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+"EOF
+
+" CocPrettier Config
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 "Coc config
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -166,11 +176,6 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
