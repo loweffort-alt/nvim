@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'kshenoy/vim-signature'
 
 " Syntax 
 Plug 'sheerun/vim-polyglot'
