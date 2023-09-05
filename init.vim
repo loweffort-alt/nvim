@@ -10,6 +10,7 @@ set relativenumber
 set laststatus=2
 set noshowmode
 set splitright
+set foldmethod=indent
 
 let mapleader=" "
 
@@ -33,7 +34,7 @@ Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
 
-" Syntax 
+" Syntax
 Plug 'sheerun/vim-polyglot'
       
 " Status bar    
