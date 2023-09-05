@@ -10,6 +10,7 @@ set relativenumber
 set laststatus=2
 set noshowmode
 set splitright
+set foldmethod=indent
 
 let mapleader=" "
 
