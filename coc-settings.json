@@ -1,4 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html", "javascript", "go", "javascriptreact"],
+<<<<<<< HEAD
   "tsserver.log": "verbose"
+=======
+  "tsserver.log": "verbose",
+  "eslint.autoFixOnSave": "true"
+>>>>>>> 5fd23208659616ff1ec833139a739876dcada6f6
 }
