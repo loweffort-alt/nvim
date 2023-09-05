@@ -204,3 +204,20 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" ---------------------------------------------------------------------------------
+"  My config
+
+" Create React Component
+function! CreateReactComponent(name)
+    " Insertar el import del componente
+    execute "normal iimport " . a:name . " from './" . a:name . "';"
+
+    " Insertar la definición del componente
+    execute "normal oconst " . a:name . " = () => { return (<div>" . a:name ."</div>) }"
+    execute "normal o "
+    execute "normal oexport default " . a:name . ";"
+endfunction
+
+" Shortcut
+nnoremap <leader>rc :call CreateReactComponent(input("Component Name: "))<CR>
