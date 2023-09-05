@@ -10,20 +10,12 @@ set relativenumber
 set laststatus=2
 set noshowmode
 set splitright
-<<<<<<< HEAD
-=======
-set foldmethod=indent
->>>>>>> 5fd23208659616ff1ec833139a739876dcada6f6
 
 let mapleader=" "
 
 "-----------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
 call plug#begin()
-=======
-call plug#begin('~/AppData/Local/nvim/plugged')
->>>>>>> 5fd23208659616ff1ec833139a739876dcada6f6
 
 " Themes
 Plug 'sainnhe/gruvbox-material'
@@ -39,14 +31,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
-<<<<<<< HEAD
 
 " Syntax 
-=======
-Plug 'kshenoy/vim-signature'
-
-" Syntax
->>>>>>> 5fd23208659616ff1ec833139a739876dcada6f6
 Plug 'sheerun/vim-polyglot'
       
 " Status bar    
