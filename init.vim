@@ -10,13 +10,12 @@ set relativenumber
 set laststatus=2
 set noshowmode
 set splitright
-set foldmethod=indent
 
 let mapleader=" "
 
 "-----------------------------------------------------------------------------------------------
 
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin()
 
 " Themes
 "Plug 'sainnhe/gruvbox-material'
@@ -35,7 +34,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
 
-" Syntax
+" Syntax 
 Plug 'sheerun/vim-polyglot'
       
 " Status bar    
@@ -247,3 +246,19 @@ let g:WebDevIconsUnicodeDecorateFolderNodeDefaultSymbol = ''
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['nerdtree'] = ''
+" ---------------------------------------------------------------------------------
+"  My config
+
+" Create React Component
+function! CreateReactComponent(name)
+    " Insertar el import del componente
+    execute "normal iimport " . a:name . " from './" . a:name . "';"
+
+    " Insertar la definición del componente
+    execute "normal oconst " . a:name . " = () => { return (<div>" . a:name ."</div>) }"
+    execute "normal o "
+    execute "normal oexport default " . a:name . ";"
+endfunction
+
+" Shortcut
+nnoremap <leader>rc :call CreateReactComponent(input("Component Name: "))<CR>
