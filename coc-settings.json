@@ -1,12 +1,15 @@
 {
+  //Esto es para el prettier
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
     "html",
     "javascript",
     "go",
-    "javascriptreact"
+    "javascriptreact",
+    "astro"
   ],
   "tsserver.log": "verbose",
   "eslint.autoFixOnSave": "true"
 }
+
