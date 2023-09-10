@@ -4,7 +4,7 @@ syntax enable
 set numberwidth=1
 set showcmd
 set ruler
-set encoding=utf-8
+set encoding=UTF-8
 set sw=2
 set relativenumber
 set laststatus=2
@@ -20,7 +20,9 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Themes
 Plug 'sainnhe/gruvbox-material'
-Plug 'shinchu/lightline-gruvbox.vim'
+Plug '/folke/tokyonight.nvim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 
 " IDE
 Plug 'easymotion/vim-easymotion'
@@ -33,6 +35,7 @@ Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
+Plug 'ryanoasis/vim-devicons'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -73,7 +76,9 @@ let g:gruvbox_italic=1
 set background=dark
 let g:gruvbox_material_background='medium'
 let g:gruvbox_material_better_performance = 1
-colorscheme gruvbox-material
+"colorscheme gruvbox-material
+colorscheme tokyonight-storm
+let g:airline_theme='ayu_dark'
 
 " Git
 nnoremap <Leader>G :G<cr>
@@ -206,3 +211,41 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+" airline symbols                                                                                                                              
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsUnicodeDecorateFolderNodeDefaultSymbol = ''
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['nerdtree'] = ''
