@@ -72,10 +72,10 @@ call plug#end()
 "-----------------------------------------------------------------------------------------------
 
 "Gruvbox config
-let g:gruvbox_italic=1
-set background=dark
-let g:gruvbox_material_background='medium'
-let g:gruvbox_material_better_performance = 1
+"let g:gruvbox_italic=1
+"set background=dark
+"let g:gruvbox_material_background='medium'
+"let g:gruvbox_material_better_performance = 1
 "colorscheme gruvbox-material
 colorscheme tokyonight-storm
 let g:airline_theme='ayu_dark'
