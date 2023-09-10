@@ -19,10 +19,8 @@ let mapleader=" "
 call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Themes
-Plug 'sainnhe/gruvbox-material'
+"Plug 'sainnhe/gruvbox-material'
 Plug '/folke/tokyonight.nvim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
 
 " IDE
 Plug 'easymotion/vim-easymotion'
@@ -41,8 +39,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
       
 " Status bar    
-Plug 'maximbaz/lightline-ale'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
             
 " Typing
 Plug 'jiangmiao/auto-pairs' " Autocomplete () [] {}
@@ -100,29 +98,29 @@ nmap <Leader>nj :NERDTreeFind<CR>
 set updatetime=100
 
 "Lightline config
-let g:lightline = {
-      \'colorscheme': 'gruvbox',
-      \'active': {
-      \  'left': [['mode', 'paste'], ['relativepath', 'modified']],
-      \  'right': [['filetype', 'percent', 'lineinfo','gitbranch']]
-      \  },
-      \'inactive': {
-      \  'left': [['inactive'], ['relativepath']],
-      \  'right': [['bufnum']]
-      \  },
-      \'component': {
-      \  'bufnum': '%n',
-      \  'inactive': 'inactive'
-      \  },
-      \'component_function': {
-      \  'gitbranch': 'FugitiveHead'
-      \   },
-      \'subseparator': {
-      \  'left': '',
-      \  'right': ''
-      \ }
-      \}
-let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline = {
+      "\'colorscheme': 'gruvbox',
+      "\'active': {
+      "\  'left': [['mode', 'paste'], ['relativepath', 'modified']],
+      "\  'right': [['filetype', 'percent', 'lineinfo','gitbranch']]
+      "\  },
+      "\'inactive': {
+      "\  'left': [['inactive'], ['relativepath']],
+      "\  'right': [['bufnum']]
+      "\  },
+      "\'component': {
+      "\  'bufnum': '%n',
+      "\  'inactive': 'inactive'
+      "\  },
+      "\'component_function': {
+      "\  'gitbranch': 'FugitiveHead'
+      "\   },
+      "\'subseparator': {
+      "\  'left': '',
+      "\  'right': ''
+      "\ }
+      "\}
+"let g:lightline.colorscheme = 'gruvbox'
 "let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 "VimuxJestTest
