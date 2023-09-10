@@ -33,6 +33,7 @@ Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
 Plug 'ryanoasis/vim-devicons'
+Plug 'wuelnerdotexe/vim-astro'
 
 " Syntax 
 Plug 'sheerun/vim-polyglot'
