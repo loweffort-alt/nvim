@@ -264,3 +264,9 @@ endfunction
 
 " Shortcut
 nnoremap <leader>rc :call CreateReactComponent(input("Component Name: "))<CR>
+
+" Markdown Compatibility : indentline modify conceal and hide markdown syntax https://github.com/preservim/vim-markdown#syntax-concealing
+let g:vim_markdown_conceal = 0
+let g:text_conceal = ""
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
