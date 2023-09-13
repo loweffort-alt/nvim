@@ -21,6 +21,7 @@ call plug#begin()
 " Themes
 "Plug 'sainnhe/gruvbox-material'
 Plug '/folke/tokyonight.nvim'
+Plug 'hachy/eva01.vim', { 'branch': 'main' }
 
 " IDE
 Plug 'easymotion/vim-easymotion'
@@ -70,14 +71,11 @@ call plug#end()
 
 "-----------------------------------------------------------------------------------------------
 
-"Gruvbox config
-"let g:gruvbox_italic=1
-"set background=dark
-"let g:gruvbox_material_background='medium'
-"let g:gruvbox_material_better_performance = 1
-"colorscheme gruvbox-material
-colorscheme tokyonight-storm
-let g:airline_theme='ayu_dark'
+"Colorscheme config
+"colorscheme tokyonight-storm
+"let g:airline_theme='ayu_dark'
+colorscheme eva01-LCL
+let g:airline_theme='deus'
 
 " Git
 nnoremap <Leader>G :G<cr>
