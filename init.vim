@@ -12,6 +12,8 @@ set noshowmode
 set splitright
 set foldmethod=indent
 
+astrmmkj
+
 let mapleader=" "
 
 "-----------------------------------------------------------------------------------------------
@@ -20,60 +22,48 @@ call plug#begin()
 
 " Themes
 "Plug 'sainnhe/gruvbox-material'
-Plug '/folke/tokyonight.nvim'
+"Plug '/folke/tokyonight.nvim'
 Plug 'hachy/eva01.vim', { 'branch': 'main' }
 
 " IDE
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-signify'
-Plug 'yggdroot/indentline'
-Plug 'scrooloose/nerdcommenter'
-Plug 'kshenoy/vim-signature'
-Plug 'ryanoasis/vim-devicons'
-Plug 'wuelnerdotexe/vim-astro'
+Plug 'easymotion/vim-easymotion' " para usar el <Leader> s (mover el cursor)
+Plug 'scrooloose/nerdtree' " navegar entre archivos (barra izquierda) <Leader> nj
+Plug 'christoomey/vim-tmux-navigator' " cambiar tamaño de tabs en vim
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " cursor multilinea
+Plug 'junegunn/fzf' " facilita el navegar por archivos <Leader> f
+Plug 'mhinz/vim-signify' " muestra si la línea se ah modificado, borrado o agregado
+Plug 'yggdroot/indentline' " Muestra la línea de indentación, tener cuidado porq modifica el conceal
+Plug 'scrooloose/nerdcommenter' " Comenta las líneas seleccionadas
+Plug 'kshenoy/vim-signature' " Muestra las marcas que tienes en el buffer
+Plug 'ryanoasis/vim-devicons' " Pa q se vean los íconos en el nerdtree
+Plug 'wuelnerdotexe/vim-astro' "  Provee resaltado de sintaxis y identación para archivos .astro
 
 " Syntax 
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " Resaltado de sintaxis de distintos lenguajes
       
 " Status bar    
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-            
+Plug 'vim-airline/vim-airline-themes' " Temas de la línea de estado
+Plug 'vim-airline/vim-airline' " Línea de estado de NVIM
+
 " Typing
 Plug 'jiangmiao/auto-pairs' " Autocomplete () [] {}
-Plug 'alvan/vim-closetag' " Autocomplete html or React tags
 Plug 'tpope/vim-surround' " Wrap a variable with 'cs'
 Plug 'mattn/emmet-vim' " Emmet autocomplete for html
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " El poderoso COC
 
 " LSP
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/completion-nvim'
+Plug 'neovim/nvim-lspconfig' " Servidor q te muestra las recomendaciones de autocompletado
 
 " Git
-Plug 'tpope/vim-fugitive'
-
-" Tests
-Plug 'tyewang/vimux-jest-test'
-Plug 'janko-m/vim-test'
-
-" LiveServer
-Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plug 'tpope/vim-fugitive' " Usar git en neovim
 
 call plug#end()
 
 "-----------------------------------------------------------------------------------------------
 
 "Colorscheme config
-"colorscheme tokyonight-storm
-"let g:airline_theme='ayu_dark'
 colorscheme eva01-LCL
 let g:airline_theme='deus'
 
@@ -96,63 +86,14 @@ nmap <Leader>nj :NERDTreeFind<CR>
 "Signify config
 set updatetime=100
 
-"Lightline config
-"let g:lightline = {
-      "\'colorscheme': 'gruvbox',
-      "\'active': {
-      "\  'left': [['mode', 'paste'], ['relativepath', 'modified']],
-      "\  'right': [['filetype', 'percent', 'lineinfo','gitbranch']]
-      "\  },
-      "\'inactive': {
-      "\  'left': [['inactive'], ['relativepath']],
-      "\  'right': [['bufnum']]
-      "\  },
-      "\'component': {
-      "\  'bufnum': '%n',
-      "\  'inactive': 'inactive'
-      "\  },
-      "\'component_function': {
-      "\  'gitbranch': 'FugitiveHead'
-      "\   },
-      "\'subseparator': {
-      "\  'left': '',
-      "\  'right': ''
-      "\ }
-      "\}
-"let g:lightline.colorscheme = 'gruvbox'
-"let g:lightline = { 'colorscheme': 'onehalfdark' }
-
-"VimuxJestTest
-nnoremap <Leader>t :TestNearest<CR>
-nnoremap <Leader>T :TestFile<CR>
-nnoremap <Leader>TT :TestSuite<CR>
-
 "VimuxTmuxNavigator (Split resize)
 nnoremap <Leader>> 10<C-w>>
 nnoremap <Leader>< 10<C-w><
 
-"My config
-nmap <A-j> 10<C-E>
-nmap <A-k> 10<C-Y>
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-nmap <Leader>, $a;<Esc>
-nmap <Leader>x :!node %<CR>
-inoremap mm <Esc>
-inoremap <A-h> <Left>
-inoremap <A-j> <Down>
-inoremap <A-k> <Up>
-inoremap <A-l> <Right>
-cnoremap <C-h> <Left>
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-cnoremap <C-l> <Right>
-nmap <Leader>ob :Buffer<CR>
-
 " LSP Config
-"lua << EOF
-"require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-"EOF
+lua << EOF
+require'lspconfig'.tsserver.setup{}
+EOF
 
 " CocPrettier Config
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
@@ -180,6 +121,7 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -211,6 +153,8 @@ nmap <leader>rn <Plug>(coc-rename)
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+
+" ----------------------------------------------------
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -246,7 +190,27 @@ let g:WebDevIconsUnicodeDecorateFolderNodeDefaultSymbol = ''
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['nerdtree'] = ''
+
 " ---------------------------------------------------------------------------------
+
+"My shortcuts
+nmap <A-j> 10<C-E>
+nmap <A-k> 10<C-Y>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>, $a;<Esc>
+nmap <Leader>x :!node %<CR>
+inoremap MM <Esc>
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+nmap <Leader>ob :Buffer<CR>
+
 "  My config
 
 " Create React Component
