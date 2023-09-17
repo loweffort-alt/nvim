@@ -12,8 +12,6 @@ set noshowmode
 set splitright
 set foldmethod=indent
 
-astrmmkj
-
 let mapleader=" "
 
 "-----------------------------------------------------------------------------------------------
@@ -54,6 +52,7 @@ Plug 'mattn/emmet-vim' " Emmet autocomplete for html
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " El poderoso COC
 
 " LSP
+Plug 'williamboman/mason.nvim'
 Plug 'neovim/nvim-lspconfig' " Servidor q te muestra las recomendaciones de autocompletado
 
 " Git
@@ -91,9 +90,12 @@ nnoremap <Leader>> 10<C-w>>
 nnoremap <Leader>< 10<C-w><
 
 " LSP Config
-lua << EOF
-require'lspconfig'.tsserver.setup{}
-EOF
+"lua << EOF
+"require("mason").setup()
+"require'lspconfig'.tsserver.setup{}
+"require'lspconfig'.astro.setup{}
+"require'lspconfig'.emmet_ls.setup{}
+"EOF
 
 " CocPrettier Config
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
@@ -210,25 +212,4 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 nmap <Leader>ob :Buffer<CR>
-
-"  My config
-
-" Create React Component
-function! CreateReactComponent(name)
-    " Insertar el import del componente
-    execute "normal iimport " . a:name . " from './" . a:name . "';"
-
-    " Insertar la definición del componente
-    execute "normal oconst " . a:name . " = () => { return (<div>" . a:name ."</div>) }"
-    execute "normal o "
-    execute "normal oexport default " . a:name . ";"
-endfunction
-
-" Shortcut
-nnoremap <leader>rc :call CreateReactComponent(input("Component Name: "))<CR>
-
-" Markdown Compatibility : indentline modify conceal and hide markdown syntax https://github.com/preservim/vim-markdown#syntax-concealing
-let g:vim_markdown_conceal = 0
-let g:text_conceal = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
+nmap <Leader>p :CocCommand prettier.formatFile<CR>

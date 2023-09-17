@@ -10,6 +10,10 @@
     "astro"
   ],
   "eslint.autoFixOnSave": "true",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "eslint.probe":["javascript","javascriptreact","typescript","typescriptreact","html","astro","markdown, json"],
+  "snippets.userSnippetsDirectory": "~/AppData/Local/nvim/snippets/mysnippets",
+  "snippets.textmateSnippetsRoots": ["~/AppData/Local/nvim/snippets/textmate"],
+  "snippets.snipmate.author": "Alex Farfan Navarro"
 }
 
