@@ -9,7 +9,7 @@
     "javascriptreact",
     "astro"
   ],
-  "tsserver.log": "verbose",
-  "eslint.autoFixOnSave": "true"
+  "eslint.autoFixOnSave": "true",
+  "snippets.ultisnips.pythonPrompt": false
 }
 
